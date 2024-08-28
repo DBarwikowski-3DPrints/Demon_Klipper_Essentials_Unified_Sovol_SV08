@@ -331,6 +331,7 @@ Then, paste into your printer.cfg
 
 This will bring these files into your system, be sure to comment out & NOT delete your current START & END PRINT Macros just yet!
 
+
 ****************************************************************************************************************************
 
 # Macro layout Import/Restore
@@ -381,6 +382,16 @@ BE SURE TO SAVE & RESTART!
 
 ****************************************************************************************************************************
 
+# Define Respond Section
+
+These macros make use of the `respond` command so please make sure your printer.cfg has this defined for use in the system. This is command is already defined in the your `Mainsail.cfg` that you just included above, so if you set these macros up correctly you wont need to add it, however if you choose not to use the `Mainsail.cfg` you will need to add the section manually.
+
+```
+[respond]
+```
+
+****************************************************************************************************************************
+
 
 # Klipperscreen LOAD/UNLOAD Macros
 
@@ -391,6 +402,8 @@ If not add them now.....
 Paste this in the same file with your `_CLIENT_VARIABLE` macro to keep things tidy.
 These are the Klipperscreen macros posted here for your convenience.
 https://klipperscreen.readthedocs.io/en/latest/macros/#extrude-panel
+
+
 
 ###### NOTE: You may want to edit the `variable_load_distance` & `variable_unload_distance` if you have a longer filamnet path than 50mm. A Biqu H2V2 is ok on 50mm but a Stealthburner will need something like 100mm!
 
@@ -743,11 +756,11 @@ icon: shuffle
 method: printer.gcode.script
 params: {"script":"clean_nozzle"}
 
-[menu __main custom return]
-name: Return Toolhead
+[menu __main custom stow]
+name: Stow Toolhead
 icon: bed-level-b-l
 method: printer.gcode.script
-params: {"script":"return_toolhead"}
+params: {"script":"stow_toolhead"}
 
 [menu __main custom ready_up_pla]
 name: Ready Up PLA
